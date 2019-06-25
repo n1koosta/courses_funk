@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+
+var child = prompt("Enter child tag (a, span, b, p, div, h1)");
+var text = prompt("Enter elem text");
+var parent = prompt("Enter parent tag (p, div, h1)");
+
+var validElems = ["a", "span", "b", "p", "div", "h1"];
+
+
+
+var childElemIsValid = -1;
+var parElemIsValid = -1;
+
+for(var i = 0; i < validElems.length; i++) {
+	if(child == validElems[i]){
+		childElemIsValid = i;
+	}
+}
+
+console.log(childElemIsValid);
+
+for(var i = 0; i < validElems.length; i++) {
+	if(parent == validElems[i]){
+		parElemIsValid = i;
+	}
+}
+
+console.log(parElemIsValid);
+
+if( parElemIsValid - childElemIsValid > -1 && childElemIsValid > -1 && parElemIsValid > -1 ) {
+	var childElem = document.createElement(child);
+	var parentElem = document.createElement(parent);
+	childElem.textContent = text;
+	parentElem.appendChild(childElem);
+	document.body.appendChild(parentElem);
+}
+
+
+
+else {
+	alert("Elems are(is) wrong!");
+}
+
+
+
+
+
+</script>
+
+
+</body>
+
+
+</html>
